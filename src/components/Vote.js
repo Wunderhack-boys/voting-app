@@ -2,26 +2,30 @@ import React, { Component } from 'react';
 
 class Vote extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      voteValue: 5
+    }
+  }
+
+  onChangeHandler = (e) => {
+    this.setState({voteValue: e.target.value});
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Vue suckt
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React - Voor Yves
-          </a>
-        </header>
+      <div>
+        <div>{this.state.voteValue}</div>
+        <input type="range" 
+               min="1" 
+               max="10" 
+               defaultValue="5" 
+               id="myRange" 
+               onChange={e => this.onChangeHandler(e)}/>
       </div>
     );
   }
 }
-
+  
 export default Vote;
