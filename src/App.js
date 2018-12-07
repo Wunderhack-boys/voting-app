@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import Vote from './components/Vote.js';
 
 class App extends Component {
