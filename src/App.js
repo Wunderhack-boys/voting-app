@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Vote from './components/Vote.js';
 import GroupInput from './components/GroupInput.js';
+import { FirebaseContext } from './components/Firebase';
 
 
 class App extends Component {
@@ -8,7 +9,10 @@ class App extends Component {
     return (
       <div className="App">
         <Vote/>
-        <GroupInput/>
+        <FirebaseContext.Consumer>
+          {firebase => <GroupInput firebase={firebase}/>}
+        </FirebaseContext.Consumer>
+
       </div>
     );
   }
