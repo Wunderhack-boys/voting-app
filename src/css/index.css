@@ -20,3 +20,35 @@ code {
   height: 200px;
   transform: translateX(-50%) translateY(170px);
 }
+
+input[type=range] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+}
+
+.btn {
+  padding: 10px 15px;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  
+}
+
+.btn-primary {
+  background-color: blue;
+  color: white;
+  border-radius: 5px;
+}
+
+.btn-danger {
+  background-color: red;
+}
+
+.ml-1{
+margin-left: 5px;
+}
+
+.ml-2{
+  margin-left: 10px;
+}
