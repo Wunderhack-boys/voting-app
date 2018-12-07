@@ -16,6 +16,7 @@ class Vote extends Component {
   render() {
     return (
       <div>
+        <h2>Project name</h2>
         <div>{this.state.voteValue}</div>
         <input type="range" 
                min="1" 
