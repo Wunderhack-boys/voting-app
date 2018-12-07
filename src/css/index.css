@@ -21,6 +21,31 @@ code {
   transform: translateX(-50%) translateY(170px);
 }
 
+.btn {
+  padding: 10px 15px;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  
+}
+
+.btn-primary {
+  background-color: blue;
+  color: white;
+  border-radius: 5px;
+}
+
+.btn-danger {
+  background-color: red;
+}
+
+.ml-1{
+margin-left: 5px;
+}
+
+.ml-2{
+  margin-left: 10px;
+}
 .vote-slider {
   -webkit-appearance: none;
   width: 80%;
