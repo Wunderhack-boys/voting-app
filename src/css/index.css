@@ -20,3 +20,74 @@ code {
   height: 200px;
   transform: translateX(-50%) translateY(170px);
 }
+
+.btn {
+  padding: 10px 15px;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  
+}
+
+.btn-primary {
+  background-color: blue;
+  color: white;
+  
+}
+
+.btn-danger {
+  background-color: red;
+}
+
+.ml-1{
+margin-left: 5px;
+}
+
+.ml-2{
+  margin-left: 10px;
+}
+.vote-slider {
+  -webkit-appearance: none;
+  width: 80%;
+  height: 8px;
+  background: #e2e2e2;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  border-radius: 5px;
+  margin: 10px 10%;
+}
+
+.vote-slider:hover {
+  opacity: 1;
+}
+
+.vote-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: rgb(204, 50, 178);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.vote-slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: rgb(204, 50, 178);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.svg-background {
+  position: fixed;
+  bottom: 0;
+  background-image: url(../images/bg.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+  width: 100%;
+}
