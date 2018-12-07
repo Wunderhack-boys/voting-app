@@ -12,3 +12,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.ben-image {
+  position: fixed;
+  left: 50%;
+  bottom: 0%;
+  height: 200px;
+  transform: translateX(-50%) translateY(170px);
+}
