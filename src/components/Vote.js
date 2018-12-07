@@ -33,7 +33,8 @@ class Vote extends Component {
                min={this.voteMin}
                max={this.voteMax} 
                defaultValue={this.state.voteValue} 
-               onChange={e => this.onChangeHandler(e)}/>
+               onChange={e => this.onChangeHandler(e)}
+               className="vote-slider"/>
         <img src={ben} alt="ben" ref={this.benImage} className="ben-image" />
       </div>
     );
