@@ -26,13 +26,14 @@ code {
   background-color: #fff;
   color: #000;
   border: none;
+  border-radius: 5px;
   
 }
 
 .btn-primary {
   background-color: blue;
   color: white;
-  border-radius: 5px;
+  
 }
 
 .btn-danger {
