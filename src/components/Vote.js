@@ -21,7 +21,7 @@ class Vote extends Component {
         <input type="range" 
                min="1" 
                max="10" 
-               defaultValue="5" 
+               defaultValue={this.state.voteValue} 
                id="myRange" 
                onChange={e => this.onChangeHandler(e)}/>
       </div>
