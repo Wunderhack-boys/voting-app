@@ -6,6 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #fff5fe;
 }
 
 code {
@@ -56,7 +57,6 @@ margin-left: 5px;
   -webkit-transition: .2s;
   transition: opacity .2s;
   border-radius: 5px;
-  margin: 10px 10%;
 }
 
 .vote-slider:hover {
@@ -81,12 +81,66 @@ margin-left: 5px;
   cursor: pointer;
 }
 
-.svg-background {
+.vote-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 50vh;
+  margin-top: 30px;
+}
+
+.vote-score {
+  color: #CC6699;
+  font-size: 48px;
+}
+
+.vote-header {
+  margin-top: 20px;
+}
+
+/* Wave animation  */
+ 
+.ocean { 
+  height: 5%;
+  width:100%;
   position: fixed;
-  bottom: 0;
-  background-image: url(../images/bg.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 300px;
-  width: 100%;
+  bottom:0;
+  left:0;
+  background: #CC6699;
+}
+
+.wave {
+  background: url(../images/wave.svg); 
+  position: absolute;
+  top: -197px;
+  width: 3200px;
+  height: 198px;
+  animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+  transform: translate3d(0, 0, 0);
+  overflow: hidden;
+}
+
+.wave:nth-of-type(2) {
+  top: -175px;
+  animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
+  opacity: 1;
+}
+
+@keyframes wave {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -1600px;
+  }
+}
+
+@keyframes swell {
+  0%, 100% {
+    transform: translate3d(0,-25px,0);
+  }
+  50% {
+    transform: translate3d(0,5px,0);
+  }
 }
