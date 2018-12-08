@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import facebookbtn from '../images/facebookbtn.png';
 
 class Login extends Component {
 
@@ -12,9 +13,13 @@ class Login extends Component {
 
   render() {
     return (
-      <button onClick={() => this.login()}>
-        Login with Facebook
-      </button>
+      <div className="login-wrapper">
+        <div className="welcome">Welcome to Wunderhack</div>
+        {/* <button className="facebook-btn" onClick={() => this.login()}>
+          Continue with Facebook
+        </button> */}
+        <img src={facebookbtn} alt="fb-login" className="facebook-btn" onClick={() => this.login()}/>
+      </div>
     )
   }
 }  

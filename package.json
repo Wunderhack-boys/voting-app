@@ -6,6 +6,7 @@
     "babel-loader": "^8.0.4",
     "firebase": "^5.7.0",
     "react": "^16.6.3",
+    "react-device-detect": "^1.6.1",
     "react-dom": "^16.6.3",
     "react-facebook-login": "^4.1.1",
     "react-router-dom": "^4.3.1",
