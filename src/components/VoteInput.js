@@ -12,7 +12,8 @@ class Vote extends Component {
     this.state = {
       voteValue: 1,
       currentGroup: '',
-      currentGroupId: 1,            
+      currentGroupId: 1,
+      canVote: true,          
     }
 
     this.benImage = React.createRef();
@@ -35,11 +36,12 @@ class Vote extends Component {
 
   updateCurrentGroup(snapshot, id) {
     this.props.firebase.group(id).once('value').then((snapshot) => {
+      if (snapshot.key !== this.state.currentGroup.id) this.setState({canVote: true});
       const newCurrentGroup = {
         ...snapshot.val(),
         id: snapshot.key
       }
-      this.setState({currentGroup: newCurrentGroup})
+      this.setState({currentGroup: newCurrentGroup});
     });
   }
 
@@ -49,15 +51,15 @@ class Vote extends Component {
   }
 
   submitVote() {
-    if(this.state.currentGroup) {
+    if (this.state.currentGroup && this.state.canVote) {
       const submittedScore = parseInt(this.state.voteValue);
       const oldScore = this.state.currentGroup.score;
       
       const newScore = oldScore + submittedScore;
 
-      this.props.firebase.group(this.state.currentGroup.id).update({score: newScore});       
-    }
-    
+      this.props.firebase.group(this.state.currentGroup.id).update({score: newScore});   
+    } 
+    this.setState({canVote: false});
   }
 
   render() {
@@ -74,7 +76,7 @@ class Vote extends Component {
                 onChange={e => this.onChangeHandler(e)}
                 className="vote-slider"/>   
                 <div className="vote-button-wrapper">
-                  <button id="vote-button" onClick={() => this.submitVote()}>
+                  <button id="vote-button" style={{backgroundColor: this.state.canVote ? '#864565' : '#d2d2d2'}} onClick={() => this.submitVote()}>
                     <p id="vote-button-text">Vote</p>
                   </button>
                 </div>
