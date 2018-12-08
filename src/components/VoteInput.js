@@ -20,9 +20,8 @@ class Vote extends Component {
 
   componentDidMount() {
     // Updates the current group ID when the current group changes
-    this.props.firebase.currentGroup().on('value', (snapshot) => {
-      const id = snapshot.val();
-      this.setState({currentGroupId: id})
+    this.props.firebase.heartGroup().on('value', (snapshot) => {
+      
     });
     // This updates when the data of the currentGroup changes
     this.props.firebase.group(this.state.currentGroupId).on('value', (snapshot) => {

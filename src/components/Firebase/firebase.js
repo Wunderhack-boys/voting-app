@@ -47,6 +47,8 @@ class Firebase {
 
   currentGroup = () => this.db.ref('currentGroup');
 
+  heartGroup = () => this.db.ref('Heartgroups');
+
 }
 
 export default Firebase;

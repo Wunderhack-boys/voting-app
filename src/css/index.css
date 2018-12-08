@@ -31,6 +31,9 @@ code {
   border-radius: 5px;
   
 }
+.btn:hover{
+  cursor: pointer;
+}
 
 .btn-primary {
   background-color: blue;
