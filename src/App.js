@@ -8,8 +8,18 @@ import { Route } from 'react-router-dom';
 
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loggedIn: false
+    }
+  }
   loginHandler = (loginData) => {
-    console.log(loginData);
+    if (loginData) {
+      this.setState({
+        loggedIn: true
+      })
+    }
   }
   render() {
     return (
@@ -17,7 +27,7 @@ class App extends Component {
           <Route exact path='/' render={() => (
             <FirebaseContext.Consumer>
               {firebase => {
-                  if (firebase.auth.currentUser) {
+                  if (this.state.loggedIn) {
                     return (<Vote firebase={firebase}/>)
                   } else {
                     return (<Login firebase={firebase} onLogin={this.loginHandler}/>)
