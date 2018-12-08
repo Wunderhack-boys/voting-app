@@ -23,7 +23,7 @@ class Firebase {
   connectToFacebook = () => {
     if (isMobile) {
       return new Promise((resolve, reject) => {
-        let token = firebase.auth.FacebookAuthProvider.credential(data.credentials.token);
+        let token = this.app.auth.FacebookAuthProvider.credential(token);
         this.auth.signInWithCredential(token).then(resolve);
       })
     }
