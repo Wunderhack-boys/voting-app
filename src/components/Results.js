@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import superSam from '../images/supersam.png';
 
 class Results extends Component {
   constructor(props) {
@@ -44,6 +45,7 @@ class Results extends Component {
   render() {
     return (
       <div>
+        <img src={superSam} alt="supersam"></img>
         <div className="chart-wrapper">
           {this.renderChart()}
         </div>
