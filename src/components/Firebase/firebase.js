@@ -20,10 +20,7 @@ class Firebase {
   }
 
   connectToFacebook = () => {
-    this.auth.signInWithPopup(this.provider)
-      .then((user) => {
-        console.log(user);
-      })
+    this.auth.signInWithPopup(this.provider);
   }
 
   // *** User API ***

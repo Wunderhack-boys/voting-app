@@ -17,7 +17,7 @@ class App extends Component {
           <Route exact path='/' render={() => (
             <FirebaseContext.Consumer>
               {firebase => {
-                  if (!firebase.auth.currentUser) {
+                  if (firebase.auth.currentUser) {
                     return (<Vote firebase={firebase}/>)
                   } else {
                     return (<Login firebase={firebase} onLogin={this.loginHandler}/>)
