@@ -12,16 +12,25 @@ class Vote extends Component {
     this.state = {
       voteValue: 1,
       currentGroup: '',
+      currentGroupId: 1,            
     }
 
     this.benImage = React.createRef();
   }
 
   componentDidMount() {
+    // Updates when the current group changes
     this.props.firebase.currentGroup().on('value', (snapshot) => {
-      this.props.firebase.group(snapshot.val()).once('value').then((snapshot) => {
-        this.setState({currentGroup: snapshot.val()})
-      });
+      const id = snapshot.val();
+      this.setState({currentGroupId: id})
+    });
+    // This updates when the data of the currentGroup changes
+    this.props.firebase.group(this.state.currentGroupId).on('value', (snapshot) => {
+      const newCurrentGroup = {
+        ...snapshot.val(),
+        id: snapshot.key
+      }
+      this.setState({currentGroup: newCurrentGroup})
     });
   }
 
@@ -36,7 +45,8 @@ class Vote extends Component {
       const oldScore = this.state.currentGroup.score;
       
       const newScore = oldScore + submittedScore;
-      console.log(newScore);
+
+      this.props.firebase.group(this.state.currentGroup.id).update({score: newScore});       
     }
     
   }
