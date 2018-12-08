@@ -20,22 +20,28 @@ class Vote extends Component {
   onChangeHandler = (e) => {
     this.setState({voteValue: e.target.value});
     this.groupName.current.style.color = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
-    this.benImage.current.style.transform = 'translateX(-50%) translateY(' + (170 + e.target.value * -11) + 'px)';
+    this.benImage.current.style.transform = 'translateX(-50%) translateY(' + (170 + e.target.value * -14) + 'px)';
   }
 
   render() {
     return (
-      <div>
-        <h2 ref={this.groupName}>Voting App</h2>
-        <div>{this.state.voteValue}</div>
+      <div className="vote-wrapper">
+        <h2 className="vote-header" ref={this.groupName}>Voting App</h2>
+        <div className="vote-score">{this.state.voteValue}</div>
         <input type="range" 
-               id="myRange" 
+               id="myRange"
                min={this.voteMin}
                max={this.voteMax} 
                defaultValue={this.state.voteValue} 
                onChange={e => this.onChangeHandler(e)}
                className="vote-slider"/>
-        <div className="svg-background"></div>
+        <div className="ocean">
+          <div className="wave"></div>
+          <div className="wave"></div>
+        </div>
+        <div id="floating-button">
+          <p className="plus">+</p>
+        </div>
         <img src={ben} alt="ben" ref={this.benImage} className="ben-image" />
       </div>
     );
