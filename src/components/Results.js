@@ -37,8 +37,8 @@ class Results extends Component {
     console.log("rendering list");
     
     return this.state.groups.map((group) =>
-    (<div key={group.id}>
-      <div className="bar" style={{height: 30 * group.score + "px", backgroundColor: '#444444'}}></div>
+    (<div key={group.id} className="bar-wrapper">
+      <div className="bar" style={{height: 30 * group.score + "px", backgroundColor: '#ff69a9'}}></div>
       <div className="chart-tag">{group.name}</div>
     </div>));
   }
@@ -46,7 +46,7 @@ class Results extends Component {
   render() {
     return (
       <div>
-        <img src={superSam} alt="supersam"></img>
+        <img src={superSam} alt="supersam" className="super-sam"></img>
         <div className="chart-wrapper">
           {this.renderChart()}  
         </div>
