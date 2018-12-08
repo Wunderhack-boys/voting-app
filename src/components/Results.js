@@ -36,10 +36,11 @@ class Results extends Component {
 
     console.log("rendering list");
     
-    return this.state.groups.map((group) => 
-    <li key={group.id} className="bar" style={{height: 30 * group.score + "px", backgroundColor: '#'+(Math.random()*0xFFFFFF<<0).toString(16)}}>
+    return this.state.groups.map((group) =>
+    (<div key={group.id}>
+      <div className="bar" style={{height: 30 * group.score + "px", backgroundColor: '#444444'}}></div>
       <div className="chart-tag">{group.name}</div>
-    </li>);
+    </div>));
   }
 
   render() {
@@ -47,7 +48,7 @@ class Results extends Component {
       <div>
         <img src={superSam} alt="supersam"></img>
         <div className="chart-wrapper">
-          {this.renderChart()}
+          {this.renderChart()}  
         </div>
       </div>
     );
