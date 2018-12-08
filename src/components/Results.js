@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import superSam from '../images/supersam.png';
 
 class Results extends Component {
   constructor(props) {
@@ -35,17 +36,19 @@ class Results extends Component {
 
     console.log("rendering list");
     
-    return this.state.groups.map((group) => 
-    <li key={group.id} className="bar" style={{height: 30 * group.score + "px", backgroundColor: '#'+(Math.random()*0xFFFFFF<<0).toString(16)}}>
+    return this.state.groups.map((group) =>
+    (<div key={group.id} className="bar-wrapper">
+      <div className="bar" style={{height: 30 * group.score + "px", backgroundColor: '#ff69a9'}}></div>
       <div className="chart-tag">{group.name}</div>
-    </li>);
+    </div>));
   }
 
   render() {
     return (
       <div>
+        <img src={superSam} alt="supersam" className="super-sam"></img>
         <div className="chart-wrapper">
-          {this.renderChart()}
+          {this.renderChart()}  
         </div>
       </div>
     );
