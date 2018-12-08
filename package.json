@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "babel-loader": "^8.0.4",
+    "chart.js": "^2.7.3",
     "firebase": "^5.7.0",
     "react": "^16.6.3",
     "react-device-detect": "^1.6.1",
