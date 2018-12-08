@@ -12,7 +12,7 @@ class Results extends Component {
   }
 
   componentDidMount() {
-    document.getElementsByTagName('body')[0].style.backgroundColor = '#fff';
+    // document.getElementsByTagName('body')[0].style.backgroundColor = '#fff';
     this.props.firebase.groups().on('value', (snapshot) => {
       let items = snapshot.val();
       

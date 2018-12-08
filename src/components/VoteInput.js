@@ -19,7 +19,7 @@ class Vote extends Component {
   }
 
   componentDidMount() {
-    // Updates when the current group changes
+    // Updates the current group ID when the current group changes
     this.props.firebase.currentGroup().on('value', (snapshot) => {
       const id = snapshot.val();
       this.setState({currentGroupId: id})
@@ -31,6 +31,16 @@ class Vote extends Component {
         id: snapshot.key
       }
       this.setState({currentGroup: newCurrentGroup})
+    });
+    // Updates the Group when CurrentGroup changes
+    this.props.firebase.currentGroup().on('value', (snapshot) => {
+      this.props.firebase.group(snapshot.val()).once('value').then((snapshot) => {
+        const newCurrentGroup = {
+          ...snapshot.val(),
+          id: snapshot.key
+        }
+        this.setState({currentGroup: newCurrentGroup})
+      });
     });
   }
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import VoteInput from './VoteInput'
 
+
 class GroupInput extends Component {
 
   constructor(props) {
@@ -44,6 +45,11 @@ class GroupInput extends Component {
     }
   }
 
+  SetCurrentGroup = (e, id) => {
+    console.log(id);
+    this.props.firebase.currentGroup(this.state.currentGroupId).set(id);
+  }
+
   addGroupToFirebase(groupName) {
     const groupItem = {
       name: groupName,
@@ -54,10 +60,11 @@ class GroupInput extends Component {
 
   renderList() {
     return this.state.groups.map((group) => 
-    <li key={group.id}>
-      {group.name} - {group.score}
-      <button className="btn btn-danger pl-3 ml-2" onClick={(e) => this.deleteGroupName(e, group.id)}>X</button> 
-    </li>);
+    <tr key={group.id}>
+     <td>{group.name} - {group.score}</td>
+     <td><button className="btn btn-danger pl-3 ml-2" onClick={(e) => this.deleteGroupName(e, group.id)}>X</button></td>
+     <td><button className="btn btn-primary pl-3 ml-2" onClick={(e) => this.SetCurrentGroup(e, group.id)}>Set to current</button></td>
+    </tr>);
   }
 
   deleteGroupName(e, id) {
@@ -77,7 +84,11 @@ class GroupInput extends Component {
         <input type="submit" value="Submit" className="btn btn-primary ml-1" />
       </form>
       <VoteInput firebase={this.props.firebase} />
-      {this.renderList()}
+      <table>
+        <tbody>
+          {this.renderList()}
+        </tbody>
+      </table>
       </div>
     );
   }

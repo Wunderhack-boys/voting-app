@@ -237,6 +237,8 @@ margin-left: 5px;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  height: 100vh;
+  overflow-x: hidden;
 }
 
 .welcome {
@@ -244,22 +246,16 @@ margin-left: 5px;
   font-size: 48px;
   padding: 10px;
   text-align: center;
-  margin-top: 20px;
+  margin-top: -30px;
+  margin-bottom: 50px;
+
 }
 
 .facebook-btn {
   width: 80vw;
-  position: fixed;
-  top: 50%
 }
 
-@media only screen and (min-width: 376px) {
-  .welcome {
-    position: absolute;
-    top: 25%;
-    margin: 0;
-  }
-
+@media only screen and (min-width: 420px) {
   .facebook-btn {
     width: 300px;
   }
