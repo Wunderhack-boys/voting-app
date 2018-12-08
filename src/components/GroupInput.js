@@ -86,7 +86,7 @@ class GroupInput extends Component {
       <VoteInput firebase={this.props.firebase} />
       <table>
         <tbody>
-        {this.renderList()}
+          {this.renderList()}
         </tbody>
       </table>
       </div>
