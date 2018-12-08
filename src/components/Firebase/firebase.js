@@ -1,7 +1,6 @@
 import app from 'firebase/app';
 import 'firebase/database';
 import 'firebase/auth';
-import {isMobile} from 'react-device-detect';
 
 const config = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -21,12 +20,6 @@ class Firebase {
   }
 
   connectToFacebook = () => {
-    if (isMobile) {
-      return new Promise((resolve, reject) => {
-        let token = this.provider.credential(token);
-        this.auth.signInWithCredential(token).then(resolve);
-      })
-    }
     return new Promise((resolve, reject) => {
       this.auth.signInWithPopup(this.provider).then(resolve);
     })

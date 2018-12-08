@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import facebookbtn from '../images/facebookbtn.png';
 
 class Login extends Component {
-
-  constructor(props) {
-    super(props);
-  }
-
   login = () => {
     this.props.firebase.connectToFacebook().then((user) => this.props.onLogin(user));
   }
