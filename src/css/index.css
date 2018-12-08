@@ -97,11 +97,13 @@ margin-left: 5px;
 
 .vote-score {
   color: #CC6699;
-  font-size: 48px;
+  font-size: 82px;
 }
 
 .vote-header {
   margin-top: 20px;
+  margin-bottom: 0;
+  color: #CC6699;
 }
 
 /* Wave animation  */

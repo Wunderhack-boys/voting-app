@@ -44,7 +44,7 @@ class Vote extends Component {
   render() {
     return (
       <div className="vote-wrapper">
-        <h2 className="vote-header">{ this.state.currentGroup.name }</h2>
+        <h2 className="vote-header">{ this.state.currentGroup ? this.state.currentGroup.name : 'Voting App' }</h2>
         <div className="vote-score">{this.state.voteValue}</div>
         <input type="range" 
                id="myRange"

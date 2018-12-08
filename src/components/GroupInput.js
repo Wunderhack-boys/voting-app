@@ -56,30 +56,15 @@ class GroupInput extends Component {
     return this.state.groups.map((group) => 
     <li key={group.id}>
       {group.name} - {group.score}
-      {/* <button className="btn btn-danger pl-3 ml-2" onClick={(e) => this.deleteGroupName(e, group.id)}>X</button>  */}
+      <button className="btn btn-danger pl-3 ml-2" onClick={(e) => this.deleteGroupName(e, group.id)}>X</button> 
     </li>);
   }
 
-   deleteGroupName(e, id) {
-  //   // this.setState({groups: this.state.groups.filter(
-  //   //   (groupName, i) => 
-  //   //     i !== id
-  //   //     )
-  //   // });
-  //   this.props.firebase.groups().on('value', (snapshot) => {
-  //     let items = snapshot.val();
-  //     console.log(items);
-      
-  //     let newState = [];
-  //     for (let item in items) {
-  //       newState.push({
-  //         id: item,
-  //         name: items[item].name,
-  //         score: items[item].score,
-  //       });
-  //     }
-
-   }
+  deleteGroupName(e, id) {
+      let oldState = [...this.state.groups];
+      let newState = oldState.filter( group =>  group.id !== id );
+      this.props.firebase.groups().set(newState);
+  }
 
   render() {
     return (
