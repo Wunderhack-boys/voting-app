@@ -13,7 +13,9 @@ class App extends Component {
         <FirebaseContext.Consumer>
           {firebase => <GroupInput firebase={firebase}/>}
         </FirebaseContext.Consumer>
-        <Login/>
+        <FirebaseContext.Consumer>
+          {firebase => <Login firebase={firebase}/>}
+        </FirebaseContext.Consumer>
       </div>
     );
   }

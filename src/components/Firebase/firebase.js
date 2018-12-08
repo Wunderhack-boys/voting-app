@@ -1,5 +1,6 @@
 import app from 'firebase/app';
 import 'firebase/database';
+import 'firebase/auth';
 
 const config = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -14,7 +15,29 @@ class Firebase {
   constructor() {
     app.initializeApp(config);
     this.db = app.database();
+    this.auth = app.auth();
+    this.provider =  new app.auth.FacebookAuthProvider();
   }
+
+  connectToFacebook = () => {
+    this.auth.signInWithPopup(this.provider)
+        .then((response) => {
+          console.log(response);
+        })
+  }
+
+  // *** User API ***
+
+  user = uid => this.db.ref(`users/${uid}`);
+
+  users = () => this.db.ref('users');
+
+  // *** Groups API ***
+
+  group = uid => this.db.ref(`groups/${uid}`);
+
+  groups = () => this.db.ref('groups');
+
 }
 
 export default Firebase;
