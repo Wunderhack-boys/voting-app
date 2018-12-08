@@ -45,8 +45,10 @@ class Results extends Component {
     
     return this.state.groups.map((group) =>
     (<div key={group.id} className="bar-wrapper">
-      <div className="bar" style={{height: 30 * group.score + "px", backgroundColor: '#ff69a9'}}></div>
       <div className="chart-tag">{group.name}</div>
+      <div className="bar" style={{width: 4 * group.score + "px", backgroundColor: '#ff69a9'}}>
+      </div>
+      <div className="chart-score" style={{marginLeft: '10px'}}>{group.score}</div>
     </div>));
   }
 

@@ -46,7 +46,6 @@ class GroupInput extends Component {
   }
 
   SetCurrentGroup = (e, id) => {
-    console.log(id);
     this.props.firebase.currentGroup(this.state.currentGroupId).set(id);
   }
 
