@@ -63,20 +63,24 @@ class Vote extends Component {
 
   render() {
     return (
-      <div className="vote-wrapper">
-        <h2 className="vote-header">{ this.state.currentGroup ? this.state.currentGroup.name : 'Voting App' }</h2>
-        <div className="vote-score">{this.state.voteValue}</div>
-        <input type="range" 
-               id="myRange"
-               min={this.voteMin}
-               max={this.voteMax} 
-               defaultValue={this.state.voteValue} 
-               onChange={e => this.onChangeHandler(e)}
-               className="vote-slider"/>   
-        <div id="floating-button" onClick={() => this.submitVote()}>
-          <p className="plus">+</p>
+      <div>
+        <div className="vote-wrapper">
+          <h2 className="vote-header">{ this.state.currentGroup ? this.state.currentGroup.name : 'Voting App' }</h2>
+          <div className="vote-score">{this.state.voteValue}</div>
+          <input type="range" 
+                id="myRange"
+                min={this.voteMin}
+                max={this.voteMax} 
+                defaultValue={this.state.voteValue} 
+                onChange={e => this.onChangeHandler(e)}
+                className="vote-slider"/>   
+                <div className="vote-button-wrapper">
+                  <button id="vote-button" onClick={() => this.submitVote()}>
+                    <p id="vote-button-text">Vote</p>
+                  </button>
+                </div>
+          <img src={ben} alt="ben" ref={this.benImage} className="ben-image" />
         </div>
-        <img src={ben} alt="ben" ref={this.benImage} className="ben-image" />
       </div>
     );
   }
