@@ -231,3 +231,36 @@ margin-left: 5px;
   from { transform: rotate(90deg) translateY(200%)}
   to { transform: rotate(90deg) translateY(-600%) }
 }
+
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.welcome {
+  color: #CC6699;
+  font-size: 48px;
+  padding: 10px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.facebook-btn {
+  width: 80vw;
+  position: fixed;
+  top: 50%
+}
+
+@media only screen and (min-width: 376px) {
+  .welcome {
+    position: absolute;
+    top: 25%;
+    margin: 0;
+  }
+
+  .facebook-btn {
+    width: 300px;
+  }
+}
