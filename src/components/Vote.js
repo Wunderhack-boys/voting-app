@@ -5,7 +5,7 @@ class Vote extends Component {
 
   render() {
     return (
-      <div className="vote-wrapper">
+      <div>
         <VoteInput firebase={this.props.firebase} />
         <div className="ocean">
           <div className="wave"></div>
