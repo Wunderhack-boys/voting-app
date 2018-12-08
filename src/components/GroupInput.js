@@ -53,11 +53,19 @@ class GroupInput extends Component {
   }
 
   deleteGroupName(e, id) {
-    this.setState({groups: this.state.groups.filter(
-      (groupName, i) => 
-        i !== id
-        )
-    });
+    // this.setState({groups: this.state.groups.filter(
+    //   (groupName, i) => 
+    //     i !== id
+    //     )
+    // });
+    
+      
+      let oldState = [...this.state.groups];
+      let newState = oldState.filter( group =>  group.id !== id );
+      this.props.firebase.groups().set(newState);
+     
+      
+   
   }
 
   componentDidMount() {
