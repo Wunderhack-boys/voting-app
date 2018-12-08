@@ -4,23 +4,15 @@ class Login extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      isLoggedIn: false,
-      userId: '',
-      name: '',
-      email: '',
-      picture: ''
-    }
   }
 
-
-  componentDidUpdate = () => {
-    this.props.onLogin("test")
+  login = () => {
+    this.props.firebase.connectToFacebook().then((user) => this.props.onLogin(user));
   }
 
   render() {
     return (
-      <button onClick={() => this.props.firebase.connectToFacebook()}>
+      <button onClick={() => this.login()}>
         Login with Facebook
       </button>
     )

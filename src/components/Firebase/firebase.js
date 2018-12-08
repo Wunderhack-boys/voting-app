@@ -20,7 +20,10 @@ class Firebase {
   }
 
   connectToFacebook = () => {
-    this.auth.signInWithPopup(this.provider);
+    return new Promise((resolve, reject) => {
+      this.auth.signInWithPopup(this.provider).then(resolve);
+    })
+    
   }
 
   // *** User API ***
