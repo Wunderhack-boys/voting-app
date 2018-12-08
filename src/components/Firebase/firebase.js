@@ -21,9 +21,9 @@ class Firebase {
 
   connectToFacebook = () => {
     this.auth.signInWithPopup(this.provider)
-        .then((response) => {
-          console.log(response);
-        })
+      .then((user) => {
+        console.log(user);
+      })
   }
 
   // *** User API ***
@@ -37,6 +37,8 @@ class Firebase {
   group = uid => this.db.ref(`groups/${uid}`);
 
   groups = () => this.db.ref('groups');
+
+  currentGroup = () => this.db.ref('currentGroup');
 
 }
 

@@ -8,18 +8,34 @@ import { Route } from 'react-router-dom';
 
 
 class App extends Component {
+  loginHandler = (loginData) => {
+    console.log(loginData);
+  }
   render() {
     return (
       <div className="App">
-          <Route exact path='/'>
-            <Vote/>
-          </Route>
-          <Route exact path='/da-resultz' component={Results}/>
-          <Route exact path='/secretadmin'>
+          <Route exact path='/' render={() => (
+            <FirebaseContext.Consumer>
+              {firebase => {
+                  if (!firebase.auth.currentUser) {
+                    return (<Vote firebase={firebase}/>)
+                  } else {
+                    return (<Login firebase={firebase} onLogin={this.loginHandler}/>)
+                  }
+                }
+              }
+            </FirebaseContext.Consumer>
+          )}/>
+          <Route exact path='/da-resultz' render={() => (
+            <FirebaseContext.Consumer>
+              {firebase => <Results firebase={firebase}/>}
+            </FirebaseContext.Consumer>
+          )}/>
+          <Route exact path='/secretadmin' render={() => (
             <FirebaseContext.Consumer>
               {firebase => <GroupInput firebase={firebase}/>}
             </FirebaseContext.Consumer>
-          </Route>
+          )}/>
       </div>
     );
   }

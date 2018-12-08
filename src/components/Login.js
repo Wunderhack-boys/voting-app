@@ -13,6 +13,11 @@ class Login extends Component {
     }
   }
 
+
+  componentDidUpdate = () => {
+    this.props.onLogin("test")
+  }
+
   render() {
     return (
       <button onClick={() => this.props.firebase.connectToFacebook()}>

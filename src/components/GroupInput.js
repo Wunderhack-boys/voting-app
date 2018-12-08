@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import VoteInput from './VoteInput'
 
 class GroupInput extends Component {
 
@@ -12,6 +13,24 @@ class GroupInput extends Component {
     
   }
 
+  componentDidMount() {
+    this.props.firebase.groups().on('value', (snapshot) => {
+      let items = snapshot.val();
+      
+      let newState = [];
+      for (let item in items) {
+        newState.push({
+          id: item,
+          name: items[item].name,
+          score: items[item].score,
+        });
+      }
+      this.setState({
+        groups: newState
+      });
+    });
+  }
+
   onChangeHandler = (e) => {
     this.setState({
       groupName: e.target.value
@@ -20,13 +39,7 @@ class GroupInput extends Component {
 
   onSubmitHandler = (e) => {
     e.preventDefault();
-    // if input is not empty then..
     if(this.state.groupName !== ''){
-      // this.setState({
-      //   groups: [
-      //     ...this.state.groups, 
-      //     this.state.groupName]
-      // });
       this.addGroupToFirebase(this.state.groupName);
     }
   }
@@ -40,44 +53,33 @@ class GroupInput extends Component {
   }
 
   renderList() {
-
-    console.log("rendering list");
-    
     return this.state.groups.map((group) => 
     <li key={group.id}>
-      {group.name}
-      <button className="btn btn-danger pl-3 ml-2" onClick={(e) => this.deleteGroupName(e, group.id)}>X</button> 
+      {group.name} - {group.score}
+      {/* <button className="btn btn-danger pl-3 ml-2" onClick={(e) => this.deleteGroupName(e, group.id)}>X</button>  */}
     </li>);
-    
-   
   }
 
-  deleteGroupName(e, id) {
-    this.setState({groups: this.state.groups.filter(
-      (groupName, i) => 
-        i !== id
-        )
-    });
-  }
-
-  componentDidMount() {
-    const itemsRef = this.props.firebase.groups();
-    itemsRef.on('value', (snapshot) => {
-      let items = snapshot.val();
-      console.log(items);
+   deleteGroupName(e, id) {
+  //   // this.setState({groups: this.state.groups.filter(
+  //   //   (groupName, i) => 
+  //   //     i !== id
+  //   //     )
+  //   // });
+  //   this.props.firebase.groups().on('value', (snapshot) => {
+  //     let items = snapshot.val();
+  //     console.log(items);
       
-      let newState = [];
-      for (let item in items) {
-        newState.push({
-          id: item,
-          name: items[item].name,
-        });
-      }
-      this.setState({
-        groups: newState
-      });
-    });
-  }
+  //     let newState = [];
+  //     for (let item in items) {
+  //       newState.push({
+  //         id: item,
+  //         name: items[item].name,
+  //         score: items[item].score,
+  //       });
+  //     }
+
+   }
 
   render() {
     return (
@@ -89,6 +91,7 @@ class GroupInput extends Component {
         </label>
         <input type="submit" value="Submit" className="btn btn-primary ml-1" />
       </form>
+      <VoteInput firebase={this.props.firebase} />
       {this.renderList()}
       </div>
     );
