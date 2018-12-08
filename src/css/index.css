@@ -32,6 +32,9 @@ code {
   cursor: pointer;
   
 }
+.btn:hover{
+  cursor: pointer;
+}
 
 .btn-primary {
   background-color: blue;

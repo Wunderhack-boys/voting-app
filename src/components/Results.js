@@ -32,6 +32,13 @@ class Results extends Component {
     });
   }
 
+  countVotes() {
+    this.props.firebase.currentGroup().on('value', (snapshot) => {
+      const id = snapshot.val();
+      this.setState({currentGroupId: id})
+    });
+  }
+  
   renderChart() {
 
     console.log("rendering list");
