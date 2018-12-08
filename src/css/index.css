@@ -6,7 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fff5fe;
+  background-color: #fff2f6;
 }
 
 code {
@@ -58,6 +58,7 @@ margin-left: 5px;
   -webkit-transition: .2s;
   transition: opacity .2s;
   border-radius: 5px;
+  z-index: 3;
 }
 
 .vote-slider:hover {
@@ -72,6 +73,7 @@ margin-left: 5px;
   background: rgb(204, 50, 178);
   border-radius: 50%;
   cursor: pointer;
+  z-index: 4;
 }
 
 .vote-slider::-moz-range-thumb {
@@ -87,8 +89,8 @@ margin-left: 5px;
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
-  height: 50vh;
-  margin-top: 30px;
+  height: 45vh;
+  margin-top: 20px;
 }
 
 .vote-score {

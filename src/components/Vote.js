@@ -20,7 +20,7 @@ class Vote extends Component {
   onChangeHandler = (e) => {
     this.setState({voteValue: e.target.value});
     this.groupName.current.style.color = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
-    this.benImage.current.style.transform = 'translateX(-50%) translateY(' + (170 + e.target.value * -11) + 'px)';
+    this.benImage.current.style.transform = 'translateX(-50%) translateY(' + (180 + e.target.value * -14) + 'px)';
   }
 
   render() {

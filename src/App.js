@@ -10,10 +10,10 @@ class App extends Component {
     return (
       <div className="App">
         <Vote/>
-        <FirebaseContext.Consumer>
+        {/* <FirebaseContext.Consumer>
           {firebase => <GroupInput firebase={firebase}/>}
         </FirebaseContext.Consumer>
-        <Login/>
+        <Login/> */}
       </div>
     );
   }
