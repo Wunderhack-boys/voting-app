@@ -1,6 +1,7 @@
 # Voting App
 
-> 7 Dec 2018
+> 7 Dec 2018  
+> https://imgur.com/a/CruNA8j
 
 School assignment. Weekend hackathon in a group of 5 people.
 
